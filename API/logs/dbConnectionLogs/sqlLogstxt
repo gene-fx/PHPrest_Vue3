@@ -1,0 +1,28 @@
+13-12-2022--10:38:46 PM LOG ->ERRO AO ADICIONAR USUARIO -> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"users"("id", "name", "email", "pass", "user_role") 
+        VALUES ("",,,,"")' at line 1
+13-12-2022--10:38:46 PM LOG ->ERRO AO ADICIONAR USUARIO -> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"users"("id", "name", "email", "pass", "user_role") 
+        VALUES ("",,,,"")' at line 1
+13-12-2022--10:40:18 PM LOG ->ERRO AO ADICIONAR USUARIO -> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"users"("id", "name", "email", "pass", "user_role") 
+        VALUES ("",,,,"")' at line 1
+13-12-2022--10:40:18 PM LOG ->ERRO AO ADICIONAR USUARIO -> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"users"("id", "name", "email", "pass", "user_role") 
+        VALUES ("",,,,"")' at line 1
+13-12-2022--10:47:51 PM LOG ->ERRO AO ADICIONAR USUARIO -> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"users"("id", "name", "email", "pass", "user_role") 
+        VALUES ("",,,,"")' at line 1
+13-12-2022--10:47:51 PM LOG ->ERRO AO ADICIONAR USUARIO -> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"users"("id", "name", "email", "pass", "user_role") 
+        VALUES ("",,,,"")' at line 1
+13-12-2022--10:59:37 PM LOG ->ERRO AO ADICIONAR USUARIO -> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"users"("id", "name", "email", "pass", "user_role") 
+        VALUES ("",,,,"")' at line 1
+13-12-2022--10:59:37 PM LOG ->ERRO AO ADICIONAR USUARIO -> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"users"("id", "name", "email", "pass", "user_role") 
+        VALUES ("",,,,"")' at line 1
+13-12-2022--11:13:03 PM LOG ->ERRO AO ADICIONAR USUARIO -> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"users"("id", "name", "email", "pass", "user_role") 
+        VALUES ("",,,,2)' at line 1
+13-12-2022--11:13:03 PM LOG ->ERRO AO ADICIONAR USUARIO -> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"users"("id", "name", "email", "pass", "user_role") 
+        VALUES ("",ANEZ...' at line 1
+13-12-2022--11:14:09 PM LOG ->ERRO AO ADICIONAR USUARIO -> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"users"("id", "name", "email", "pass", "user_role") 
+        VALUES ("",,,,"2")' at line 1
+13-12-2022--11:14:09 PM LOG ->ERRO AO ADICIONAR USUARIO -> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"users"("id", "name", "email", "pass", "user_role") 
+        VALUES ("",ANEZ...' at line 1
+13-12-2022--11:15:20 PM LOG ->ERRO AO ADICIONAR USUARIO -> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"users"("name", "email", "pass", "user_role") 
+        VALUES (,,,"2")' at line 1
+13-12-2022--11:15:20 PM LOG ->ERRO AO ADICIONAR USUARIO -> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"users"("name", "email", "pass", "user_role") 
+        VALUES (ANEZIO RODRIG...' at line 1

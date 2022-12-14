@@ -11,4 +11,10 @@ class userController
         $response = new \API\dataAccess\user();
         return $response->getUsers();
     }
+
+    public function addUser($user)
+    {
+        $response = new \API\dataAccess\user();
+        return $response->addUser($user);
+    }
 }

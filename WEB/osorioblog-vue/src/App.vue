@@ -1,11 +1,12 @@
 <script setup>
-// import HelloWorld from "./components/HelloWorld.vue";
+import userReg from "./areas/user/userReg.vue";
 import UserList from "./areas/admin/usersList.vue";
 </script>
 
 <template>
   <div>
     <UserList />
+    <userReg />
   </div>
 </template>
 
