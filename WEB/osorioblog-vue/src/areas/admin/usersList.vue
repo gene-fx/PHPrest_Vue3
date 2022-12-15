@@ -21,12 +21,17 @@ onMounted(async () => {
       <th>Nome</th>
       <th>Email</th>
       <th>UserRole</th>
+      <th>Options</th>
     </thead>
     <tbody>
       <tr v-for="user in users" :key="user.id">
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.user_role }}</td>
+        <td>
+          <div><button>Delete</button></div>
+          <div><button>Info</button></div>
+        </td>
       </tr>
     </tbody>
   </table>

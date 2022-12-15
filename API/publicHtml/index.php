@@ -25,6 +25,5 @@ switch ($url['0']) {
         break;
     case 'add':
         $response = call_user_func(array(new \API\controllers\userController, 'addUser'), $recievedRequest['_value']);
-        echo json_encode(array('data' => $response));
         break;
 }

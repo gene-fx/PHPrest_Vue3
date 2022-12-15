@@ -1,11 +1,15 @@
 <script setup>
-import { ref, inject } from "vue";
+import { ref, inject, onMounted } from "vue";
 
 const axios = inject("axios");
 const swal = inject("$swal");
 
 defineProps({
   msg: String,
+});
+
+onMounted(() => {
+  console.log($("input[name='nome']"));
 });
 
 let userObj = ref({
@@ -17,9 +21,9 @@ let userObj = ref({
 
 async function onPost() {
   if (
-    $("input[name='nome']").value == "" ||
-    $("input[name='email']").value == "" ||
-    $("input[name='pass']").value == ""
+    !$('input[name="name"]').val() ||
+    !$('input[name="email"]').val() ||
+    !$('input[name="pass"]').val()
   ) {
     $("#post-form").submit((event) => {
       event.preventDefault();
@@ -32,12 +36,19 @@ async function onPost() {
       confirmButtonText: "Ok",
     });
   } else {
-    console.log("entrou no else");
+    console.log($('input[name="name"]').val());
     await axios.post("/add", userObj).then((response) => {
-      if (response == "success") {
+      console.log(response);
+      if (response.status == 201) {
         document.location.reload();
       } else {
-        console.log("ERROU!");
+        swal.fire({
+          title: "Ops",
+          text: "Alguma coisa saiu errada!",
+          icon: "error",
+          showCancelButton: false,
+          confirmButtonText: "Ok",
+        });
       }
     });
   }

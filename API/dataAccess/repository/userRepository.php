@@ -33,17 +33,22 @@ class user extends dbcontext
 
     public function addUser($user)
     {
-        $sql = 'INSERT INTO "users"("name", "email", "pass", "user_role") 
-        VALUES (' . $user['nome'] . ',' . $user['email'] . ',' . $user['pass'] . ',"2")';
+        if (empty($user['nome']) || empty($user['email']) || empty($user['pass'])) {
+            return;
+        }
+        $name = htmlspecialchars($user['nome']);
+        $email = filter_var($user['email'], FILTER_SANITIZE_EMAIL);
+        $pass = password_hash($user['pass'], PASSWORD_DEFAULT);
+        $user_role = $user['user_role'];
 
-        echo $sql;
+        $sql = "INSERT INTO users (name, email, pass, user_role) VALUE ('{$name}', '{$email}', '{$pass}', '{$user_role}')";
 
         try {
-            $stmt = self::$_connDb->prepare($sql);
-            $stmt->execute();
+            self::$_connDb->query($sql);
             self::$_logMaker->logMaker('USER SUCCESSFULLY ADDED', 'dbConnectionLogs', 'sqlLogs');
+            echo json_encode(array('data' => 'success', 'code' => http_response_code(201)));
         } catch (\Exception $e) {
-            self::$_logMaker->logMaker('ERRO AO ADICIONAR USUARIO -> ' . $e->getMessage(), 'dbConnectionLogs', 'sqlLogs');
+            self::$_logMaker->logMaker('ERRO-> ' . $e->getMessage(), 'dbConnectionLogs', 'sqlLogs');
         }
     }
 }
