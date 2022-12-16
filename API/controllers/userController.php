@@ -12,6 +12,11 @@ class userController
         return $response->getUsers();
     }
 
+    public function getUser($id){
+        $response = new \API\dataAccess\user();
+        return $response->getUser((int)$id);
+    }
+
     public function addUser($user)
     {
         $response = new \API\dataAccess\user();

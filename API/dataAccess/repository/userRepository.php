@@ -27,8 +27,18 @@ class user extends dbcontext
         return $data;
     }
 
-    public function getUser(int $id)
+    public function getUser($id)
     {
+        $sql = "SELECT * FROM users WHERE id = {$id}";
+        try{
+            $userData = self::$_connDb->query($sql);
+            self::$_logMaker->logMaker('Consulta realizada com sucesso', 'dbConnectionLogs', 'sqlLogs');
+            echo json_encode($userData);
+        }
+        catch(\Exception $e){
+            self::$_logMaker->logMaker('ERROR ->'. $e->getMessage(), 'dbConnectionLogs', 'sqlLogs');
+            return http_response_code(400);
+        }
     }
 
     public function addUser($user)
@@ -49,6 +59,7 @@ class user extends dbcontext
             echo json_encode(array('data' => 'success', 'code' => http_response_code(201)));
         } catch (\Exception $e) {
             self::$_logMaker->logMaker('ERRO-> ' . $e->getMessage(), 'dbConnectionLogs', 'sqlLogs');
+            return http_response_code(400);
         }
     }
 }

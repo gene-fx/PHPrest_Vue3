@@ -4,14 +4,6 @@ import { ref, inject, onMounted } from "vue";
 const axios = inject("axios");
 const swal = inject("$swal");
 
-defineProps({
-  msg: String,
-});
-
-onMounted(() => {
-  console.log($("input[name='nome']"));
-});
-
 let userObj = ref({
   nome: "",
   email: "",
@@ -36,8 +28,10 @@ async function onPost() {
       confirmButtonText: "Ok",
     });
   } else {
+    const headers = {'Content-Type': 'text/plain'};
+
     console.log($('input[name="name"]').val());
-    await axios.post("/add", userObj).then((response) => {
+    await axios.post("/add", userObj, headers).then((response) => {
       console.log(response);
       if (response.status == 201) {
         document.location.reload();
