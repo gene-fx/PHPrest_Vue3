@@ -14,7 +14,14 @@ class userController
 
     public function getUser($id){
         $response = new \API\dataAccess\user();
-        return $response->getUser((int)$id);
+        switch(gettype($id)){
+            case 'integer':
+                return $response->getUserById($id);
+                break;
+            case 'array':
+                return $response->getUserByEmail($id);
+                break;
+        }
     }
 
     public function addUser($user)

@@ -1,0 +1,14 @@
+19-12-2022--16:45:15 PM LOG ->Consulta a usuário por email - LOGIN
+20-12-2022--08:26:15 AM LOG ->Consulta a usuário por email - LOGIN
+20-12-2022--08:46:23 AM LOG ->Consulta a usuário por email - LOGIN
+20-12-2022--09:08:39 AM LOG ->Consulta a usuário por email - LOGIN
+20-12-2022--09:14:23 AM LOG ->Consulta a usuário por email - LOGIN
+20-12-2022--09:15:20 AM LOG ->Consulta a usuário por email - LOGIN
+20-12-2022--09:15:43 AM LOG ->Consulta a usuário por email - LOGIN
+20-12-2022--13:20:22 PM LOG ->Consulta a usuário por ID - GETUSERBYID
+20-12-2022--13:45:59 PM LOG ->Consulta a usuário por ID - GETUSERBYID
+20-12-2022--13:56:04 PM LOG ->Consulta a usuário por ID - GETUSERBYID
+20-12-2022--13:56:45 PM LOG ->Consulta a usuário por ID - GETUSERBYID
+10-01-2023--20:44:31 PM LOG ->Consulta a usuário por ID - GETUSERBYID
+10-01-2023--20:44:48 PM LOG ->Consulta a usuário por ID - GETUSERBYID
+10-01-2023--22:43:22 PM LOG ->Consulta a usuário por ID - GETUSERBYID

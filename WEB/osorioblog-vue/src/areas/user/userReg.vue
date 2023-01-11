@@ -28,10 +28,8 @@ async function onPost() {
       confirmButtonText: "Ok",
     });
   } else {
-    const headers = {'Content-Type': 'text/plain'};
-
     console.log($('input[name="name"]').val());
-    await axios.post("/add", userObj, headers).then((response) => {
+    await axios.post("/addUser", userObj).then((response) => {
       console.log(response);
       if (response.status == 201) {
         document.location.reload();

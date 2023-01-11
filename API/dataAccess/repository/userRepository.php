@@ -20,23 +20,54 @@ class user extends dbcontext
 
     public function getUsers()
     {
-        $sql = 'SELECT * FROM users';
+        $sql = 'SELECT users.id, users.name, users.email, user_role.role FROM users 
+            LEFT JOIN user_role ON users.user_role = user_role.id';
         $teste = self::$_connDb;
         $data = $teste->query($sql);
         $data = $data->fetch_all(MYSQLI_ASSOC);
         return $data;
     }
 
-    public function getUser($id)
+    public function getUserByEmail($loginData)
     {
-        $sql = "SELECT * FROM users WHERE id = {$id}";
-        try{
-            $userData = self::$_connDb->query($sql);
-            self::$_logMaker->logMaker('Consulta realizada com sucesso', 'dbConnectionLogs', 'sqlLogs');
-            echo json_encode($userData);
+        $email = $loginData['user'];
+        $pass = $loginData['pass'];
+
+        if (empty($email) || empty($pass)) {
+            return;
         }
-        catch(\Exception $e){
-            self::$_logMaker->logMaker('ERROR ->'. $e->getMessage(), 'dbConnectionLogs', 'sqlLogs');
+
+        $sql = "SELECT * FROM users WHERE email = '{$email}'";
+
+        try {
+            $userData = self::$_connDb->query($sql);
+            $userData = $userData->fetch_assoc();
+            self::$_logMaker->logMaker('Consulta a usuário por email - LOGIN', 'dbConnectionLogs', 'sqlLogs');
+
+            if (password_verify($pass, $userData['pass'])) {
+                session_start();
+                $_SESSION['user'] = $userData['name'];
+                $_SESSION['email'] = $userData['email'];
+                $_SESSION['user_role'] = $userData['user_role'];
+                return array('login' => 'UserLoggedIn');
+            }
+        } catch (\Exception $e) {
+            self::$_logMaker->logMaker('ERROR ->' . $e->getMessage(), 'dbConnectionLogs', 'sqlLogs');
+            return http_response_code(400);
+        }
+    }
+
+    public function getUserById($id)
+    {
+        $sql = 'SELECT * FROM users WHERE id = ' . $id;
+
+        try {
+            $userData = self::$_connDb->query($sql);
+            $userData = $userData->fetch_assoc();
+            self::$_logMaker->logMaker('Consulta a usuário por ID - GETUSERBYID', 'dbConnectionLogs', 'sqlLogs');
+            return $userData;
+        } catch (\Exception $e) {
+            self::$_logMaker->logMaker('ERROR ->' . $e->getMessage(), 'dbConnectionLogs', 'sqlLogs');
             return http_response_code(400);
         }
     }

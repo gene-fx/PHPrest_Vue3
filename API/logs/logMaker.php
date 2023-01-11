@@ -9,11 +9,11 @@ class logMaker
         $logsPath =
             $_SERVER['DOCUMENT_ROOT'] . '/osoriostreetblog/api/logs/' . $folderName . '/';
 
-        $file = fopen($logsPath . $fileName . 'txt', "a");
+        $file = fopen($logsPath . $fileName . '.txt', "a");
 
-        date_default_timezone_set('America/Sao_Paulo');
+        date_default_timezone_set('America/Belem');
 
-        $log = date('d-m-Y--h:i:s A') . ' LOG ->' . $message . PHP_EOL;
+        $log = date('d-m-Y--H:i:s A') . ' LOG ->' . $message . PHP_EOL;
 
         if ($file) {
             fwrite($file, $log);

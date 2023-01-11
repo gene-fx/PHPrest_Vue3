@@ -4,26 +4,32 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type");
 
 require_once '../controllers/userController.php';
-
-use API\controllers\userController;
+require_once '../controllers/userRoleController.php';
 
 $recievedRequest = json_decode(file_get_contents('php://input'), true);
 
-$url = explode('/', $_GET['url']);
+$url = explode('/', $_REQUEST['url']);
 
 switch ($url['0']) {
+        //!----------------------------------USERS
     case 'users':
         $response = call_user_func(array(new \API\controllers\userController, 'getAll'));
-        echo json_encode(array('data' => $response));
+        echo json_encode($response);
         break;
-    case 'add':
+    case 'addUser':
         $response = call_user_func(array(new \API\controllers\userController, 'addUser'), $recievedRequest['_value']);
         break;
-    case 'info':
-        /**
-         * TODO nao consigo pegar a id quem vem na requisiçao... investigar userList.vue
-         * TODO - continuar aqui, no userCOntroller.php e userRepository.php
-         */
-        $response = call_user_func(array(new \API\controllers\userController, 'getUser'), (int)$recievedRequest);
+    case 'userInfo':
+        $response = call_user_func(array(new \API\controllers\userController, 'getUser'), $recievedRequest);
+        echo json_encode($response);
+        break;
+    case 'login':
+        $response = call_user_func(array(new \API\controllers\userController, 'getUser'), $recievedRequest);
+        echo json_encode($response);
+        break;
+        //!----------------------------------ROLES
+    case 'roles':
+        $response = call_user_func(array(new \API\controllers\userRoleController, 'getAll'));
+        echo json_encode($response);
         break;
 }
